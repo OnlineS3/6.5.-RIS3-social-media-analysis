@@ -1,0 +1,102 @@
+{% extends 'SMAapp/_base.html' %}
+
+{% block title %}
+    Guide
+{% endblock %}
+
+{% block css %}{{block.super}}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/SMAapp/guide_accordion.css' %}">
+    <link rel="stylesheet" href="{% static 'css/SMAapp/plain.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="site-content">
+
+        <article id="main-content">
+
+            <h2>Guide</h2>
+            <button class="accordion" id="sectiona">Section A: Choose whether you want to perform a comparison or get information for a region's account</button>
+            <div class="panel">
+                <p>In this section, the process of how a user can search for a region's account or perform a comparison between account is described.</p>
+                <p><strong>Step 1:</strong> Visit the main page of the Application</p>
+                <p>Once you visit the application page, two search boxes will be displayed. The first one <strong>Search Username</strong> is used to search for a specific account of a region.
+                    The second one <strong> Compare Users</strong> is used to compare two different regions' accounts.<p>
+                <div class="img-container">
+                    <img class="modal-img" id="about-img" src="{% static "images/step1.png" %}" alt="Search or compare regions" width="100%">
+                </div>
+                <p class="img-caption">Figure 1 Search or compare regions</p>
+            </div>
+            <button class="accordion" id="sectionb">Section B: Get information for a region's account</button>
+            <div class="panel">
+                <p>In this section, the process of how a user can retrieve information about the Twitter account of a region is described.</p>
+                <p><strong>Step 2:</strong> Choose the region of interest, using the drop down menu</p>
+                <p>The user can select an account among the provided list. All the accounts that will be available will refer to those of regions or pilots of the Online S3 project.<p>
+                <div class="img-container">
+                    <img class="modal-img" id="about-img" src="{% static "images/step2.png" %}" alt="Figure 2 Search for a region" width="100%">
+                </div>
+                <p class="img-caption">Figure 2 Search for a region</p>
+
+                <p><strong>Step 3:</strong> Get information for the account the user has searched for</p>
+                <p>After choosing a specific region / account the application will automatically direct you to another page that contains information for the account of interest, along with a variety of
+                    performance indicators. In Figure 3 for example, we have searched for "ECCI".</p>
+                <div class="img-container">
+                    <img class="modal-img" id="about-img" src="{% static "images/step3.png" %}" alt="Figure 3 Get information and performance indicators for the account the user has searched for" width="100%">
+                </div>
+                <p class="img-caption">Figure 3 Get information for the account the user has searched for</p>
+
+                <p><strong>Step 4:</strong> Description of each part of displayed information</p>
+                <p>The page that is loaded after searching for a region or partner, includes a variety of information and related performance indicators. On top you can
+                    find the description of the user you have searched for <em>(Figure 3)</em>. Right under the description the number of friends, followers and total tweets is displayed. These
+                numbers are indicative of the influence and the online activity of the user. Usually, the more followers an account has, the better. Next, you can find the three tweets of this account that
+                has been marked as favorite more times than any other. This is quite important, since the user can identify to which topics, hashtags, etc the audience is more responsive to. On the left side of the
+                page, the user can find a series of plain information for the account, along with the account's latest tweet and its performance. In <em>Figure 4</em> the user can find some performance indicators
+                , which are described in details below.</p>
+                <div class="img-container">
+                    <img class="modal-img" id="about-img" src="{% static "images/step4.png" %}" alt="Figure 3 Get information and performance indicators for the account the user has searched for" width="100%">
+                </div>
+                <p class="img-caption">Figure 4 Get performance indicators for the account the user has searched for</p>
+                <p> On the left there is a word-cloud which displays the hashtags that has been used more often. On the right side the user can find four charts.</p>
+                <p>The <strong>first</strong> one displays the daily activity of the user. In other words, the average number of tweets the user posts per day. In <em>Figure 4</em> we can see that for example,the user "ECCI" does not usually post any tweets on Saturday.</p>
+                <p>The <strong>second</strong> one displays the Tweet-Retweet ratio of the account. To be more specific, it shows the percentage of tweets that are statuses of other accounts and retweed by this account, over the ones that this account has posted and are originally his/hers.</p>
+                <p>The <strong>third and fourth</strong> one display the number of likes and the number of the tweets that have been retweeted by others , by day. In this example we can detect some anomalies on certain dates; Thus,
+                the potential user can identify that during these dates (in yellow circles) the ECCI account attracted a lot of other users. This may have been the result of a certain series of posts with a specific hashtag, a
+                conference that "ECCI" has participated or a rather important announcement.</p>
+            </div>
+            <button class="accordion" id="sectionc">Section C: Perform a comparison between regions</button>
+            <div class="panel">
+                <p>In this section, the process of how a user can perform a comparison between accounts is described.</p>
+                <p><strong>Step 1:</strong>Choose the user accounts you want to compare</p>
+                <p>Once you visit the main page of the application, choose the user accounts you want to compare by selecting their user names in the double drop-down menu available.<p>
+                <div class="img-container">
+                    <img class="modal-img" id="about-img" src="{% static "images/step5.png" %}" alt="Compare regions" width="100%">
+                </div>
+                <p class="img-caption">Figure 5 Search or compare regions</p>
+                <p><strong>Step 2:</strong>Get a straight comparison between the main performance indicators for two accounts</p>
+                <div class="img-container">
+                    <img class="modal-img" id="about-img" src="{% static "images/step6.png" %}" alt="Comparison results" width="100%">
+                </div>
+                <p class="img-caption">Figure 6 Comparison results</p>
+                <p>After selecting the accounts the user wants to compare, a new page with four charts will appear. The charts are the same as before, but include information for both accounts.
+                The only thing that is different is the pie chart which displays the number of followers for each account, instead of displaying the tweets - retweets ratio. In <em> Figure 6</em> a comparison between "SNN" and "ECCI" has been performed. It is obvious
+                that these two accounts have a similar online activity. What's more, someone can observe that they reach a peak during the same period, so this may happen because of an event they both attended, or an action that both have been parts of.</p>
+            </div>
+
+        </article>
+
+         <aside id='sidebar'>
+
+            <a href="{% static "images/social_media_Guide.pdf" %}" target="_blank" onclick="popIt(this.href);return false;"><button class="alt"> Download Guide  <i class="fa fa-file-pdf-o" aria-hidden="true"></i></button></a>
+
+            <div></div>
+            <a id='tool' href='{% url 'smaapp:index' %}'><button> Access to application  <img  src="{% static "images/access-icon.png" %}" width="20"></button></a>
+        </aside>
+
+    </div>
+{% endblock %}
+
+{% block js_end %}
+    <script src="{% static "js/jquery-3.2.1.min.js" %}"></script>
+    <script src="{% static "js/accordion2.js" %}"></script>
+    <script src="{% static "js/popit.js" %}"></script>
+{% endblock %}

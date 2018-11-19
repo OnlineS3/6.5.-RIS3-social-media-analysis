@@ -1,0 +1,28 @@
+{% extends 'SMAapp/_base.html' %}
+
+{% block title %}
+    Username does not exist
+{% endblock %}
+
+{% block css %}{{block.super}}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/SMAapp/user404.css' %}">
+{% endblock %}
+
+
+{% block content %}
+    <div class="container text-center" id="user-not-exists-block">
+
+                <h1>
+                    Oops!</h1>
+                <h2>
+                    The region you are searching for is not included in our database</h2>
+
+                 <button id="backButton" class="btn btn-primary" onclick="location.href='{% url 'smaapp:index' %}'">
+                <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                Back to Search
+                 </button>
+
+</div>
+
+{% endblock %}

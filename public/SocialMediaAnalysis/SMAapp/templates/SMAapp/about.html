@@ -1,0 +1,64 @@
+{% extends 'SMAapp/_base.html' %}
+{% block title %}
+    About
+{% endblock %}
+
+{% block css %}{{block.super}}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/SMAapp/plain.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="site-content">
+
+        <article id="main-content">
+
+            <h2>About</h2>
+
+            <p>
+                The use of social media analytics in RIS3 can offer simple indicators for monitoring the RIS3 process and implement cross-regional
+                comparative analysis by using data coming from social media sites, such as Twitter, Facebook, Instagram and LinkedIn. This application uses data coming only from Twitter,
+                since Twitter allows the potential user to retrieve data from other accounts as well.
+                Using the knowledge extracted from these data sources, the RIS3 can be improved by:
+            </p>
+            <ul class="circled">
+                <li><strong>integrating</strong> valuable stakeholders’ insights, opinions and feedback</li>
+                <li><strong>stimulating</strong> collaboration</li>
+                <li><strong>supporting</strong> evidence-based decision making processes by taking public opinion into account</li>
+            </ul>
+            <p>Social media analytics can also help increase transparency and generate higher public participation rates than other conventional e-government applications.
+                Moreover, it can play an even greater role in strengthening and widening the participation of and interaction with citizens.
+                Finally, in the RIS3 context, social media analytics can help articulate the collaborative visioning process and better legitimate
+                the selection of specific scenarios emerging during the strategy formulation
+            </p>
+            <p>
+                The logical steps of the application, based on its methodological description are:
+            </p>
+            <ul class='dashed'>
+                <li><i><strong>Step 1.</strong></i> Choose whether you want to get information for the performance of a region's Twitter account or compare two region accounts</li>
+                <li><i><strong>Step 2.</strong></i> In the first case, choose your region of interest and get a number of performance indicators</li>
+                <li><i><strong>Step 3.</strong></i> Use these indicators to identify strengths and weaknesses, possible trends and user acceptability</li>
+                <li><i><strong>Step 4.</strong></i> In the second case, compare two regions, identify the strengths of each one and possibly adopt a similar online behavior</li>
+            </ul>
+            <div class="img-container">
+                {% load static %}
+            <img class="modal-img" id="about-img" src="{% static "images/about.png" %}" alt="Figure 1 Overview of the information flows within the Regional Specialisation Indexes application." width="620">
+            </div>
+            <p class="img-caption">Figure 1 Overview of the information flows within the Social Media Analytics application.</p>
+
+
+        </article>
+
+        <aside id='sidebar'>
+
+            <a href="{% static "images/social_media_Guide.pdf" %}" target="_blank" onclick="popIt(this.href);return false;"><button class="alt"> Download Guide  <i class="fa fa-file-pdf-o" aria-hidden="true"></i></button></a>
+
+            <div></div>
+            <a id='tool' href='{% url 'smaapp:index' %}'><button> Access to application  <img  src="{% static "images/access-icon.png" %}" width="20"></button></a>
+        </aside>
+
+    </div>
+{% endblock %}
+{% block js_end %}
+    <script src="{% static "js/popit.js" %}"></script>
+{% endblock %}

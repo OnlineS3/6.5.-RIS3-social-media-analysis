@@ -1,0 +1,495 @@
+/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+.row.content {height: 550px}
+
+/* Set gray background color and 100% height */
+.sidenav {
+    background-color: #f1f1f1;
+    height: 100%;
+}
+
+/* On small screens, set height to 'auto' for the grid */
+@media screen and (max-width: 767px) {
+    .row.content {height: auto;}
+}
+
+
+
+@media (min-width: 768px){
+.circle-tile {
+    margin-bottom: 30px;
+}
+}
+
+.circle-tile {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.circle-tile-heading {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto -40px;
+    border: 3px solid rgba(255,255,255,0.3);
+    border-radius: 100%;
+    color: #fff;
+    transition: all ease-in-out .3s;
+}
+
+/* -- Background Helper Classes */
+
+/* Use these to cuztomize the background color of a div. These are used along with tiles, or any other div you want to customize. */
+
+ .dark-blue {
+    background-color: #34495e;
+}
+
+.green {
+    background-color: #16a085;
+}
+
+.blue {
+    background-color: #2980b9;
+}
+
+.orange {
+    background-color: #f39c12;
+}
+
+.red {
+    background-color: #e74c3c;
+}
+
+.purple {
+    background-color: #8e44ad;
+}
+
+.dark-gray {
+    background-color: #7f8c8d;
+}
+
+.gray {
+    background-color: #95a5a6;
+}
+
+.light-gray {
+    background-color: #bdc3c7;
+}
+
+.yellow {
+    background-color: #f1c40f;
+}
+
+/* -- Text Color Helper Classes */
+
+ .text-dark-blue {
+    color: #34495e;
+}
+
+.text-green {
+    color: #16a085;
+}
+
+.text-blue {
+    color: #2980b9;
+}
+
+.text-orange {
+    color: #f39c12;
+}
+
+.text-red {
+    color: #e74c3c;
+}
+
+.text-purple {
+    color: #8e44ad;
+}
+
+.text-faded {
+    color: rgba(255,255,255,0.7);
+}
+
+
+
+.circle-tile-heading .fa {
+    line-height: 80px;
+}
+
+.circle-tile-content {
+    padding-top: 50px;
+}
+.circle-tile-description {
+    text-transform: uppercase;
+}
+
+.text-faded {
+    color: rgba(255,255,255,0.7);
+}
+
+.circle-tile-number {
+    padding: 5px 0 15px;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.circle-tile-footer {
+    display: block;
+    padding: 5px;
+    color: rgba(255,255,255,0.5);
+    background-color: rgba(0,0,0,0.1);
+    transition: all ease-in-out .3s;
+}
+
+.circle-tile-footer:hover {
+    text-decoration: none;
+    color: rgba(255,255,255,0.5);
+    background-color: rgba(0,0,0,0.2);
+}
+
+.panel-default {
+    margin-top: 50px;
+    box-shadow: 0 0 15px black;
+    padding:0 15px 0 15px;
+}
+
+.panel h3 {
+    color: #2980b9;
+}
+
+.panel-primary {
+    border-style: none;
+}
+
+.panel-primary > .panel-heading{
+    background-color: #2980b9;
+}
+
+html {
+    box-sizing: border-box;
+    line-height: 1.3; /*added*/
+}
+
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+body {
+    padding-top:8px;
+    width: 100%;
+}
+
+p, ul li {
+	color: #000;
+	font-size: 13px;
+	font-family: verdana,sans-serif
+}
+
+p {
+	line-height: 1.8;
+	text-align: justify;
+	padding: 3px 16px;
+}
+
+button {
+	line-height: 1;
+}
+
+h2 {
+    margin: 0;
+    color: #de1515;
+    padding-left:20px ;
+    padding-bottom:5px;
+    font-style: normal;
+    font-weight: 400;
+    clear: both;
+    font-size: 21px;
+    font-family: tahoma;
+}
+
+
+li a:active {
+    color:yellow !important;
+}
+
+#page {
+	background: #e5e8e8;
+	background-image: url(../../images/background.png);
+	background-position: right top, left top;
+	background-repeat: no-repeat, no-repeat;
+    width: 100%;
+}
+
+
+#mainpage {
+	height: auto;
+	max-width: 1200px;
+	margin: 0 auto;
+	background: white;
+}
+
+
+nav#mainnav {
+
+  width: 100%;
+
+  margin: 20px 0; }
+
+nav#mainnav ul {
+
+  float: right;
+
+  padding-right: 30px;
+
+  list-style: none;
+
+  overflow: hidden;
+}
+
+nav#mainnav ul li {
+
+  float: left;
+
+  display: inline;
+}
+
+nav#mainnav ul li a {
+
+  font-weight: 600;
+  font-size: 12px;
+  color: #fff;
+
+  text-align: center;
+
+  padding: 10px 10px 10px 10px;
+
+  display: block;
+
+  width: 100%;
+
+  background: #2197f9; /* Old browsers */
+
+  background: -moz-linear-gradient(top, #2197f9 0%, #007ce2 100%); /* FF3.6+ */
+
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#2197f9), color-stop(100%,#007ce2)); /* Chrome,Safari4+ */
+
+  background: -webkit-linear-gradient(top, #2197f9 0%,#007ce2 100%); /* Chrome10+,Safari5.1+ */
+
+  background: -o-linear-gradient(top, #2197f9 0%,#007ce2 100%); /* Opera 11.10+ */
+
+  background: linear-gradient(to bottom, #2197f9 0%,#007ce2 100%); /* W3C, IE10+ */
+
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2197f9', endColorstr='#007ce2',GradientType=0 ); /* IE6-9 */
+
+  endColorstr:'#007ce2',GradientType 0; /* IE6-9 */
+
+}
+
+nav#mainnav ul li a,
+
+nav#mainnav ul li a:focus,
+
+nav#mainnav ul li a:visited,
+
+nav#mainnav ul li a:hover,
+
+nav#mainnav ul li a:active {
+
+  font-weight: 600;
+  font-size: 12px;
+  color: #fff;
+
+  text-decoration: none; }
+
+nav#mainnav ul li a:hover,
+
+nav#mainnav ul li a:active {
+
+  font-weight: 600;
+  font-size: 12px;
+  color: #fff;
+
+  background: #007ce2; /* Old browsers */
+
+  background: -moz-linear-gradient(top, #007ce2 0%, #ff6b6b 100%); /* FF3.6+ */
+
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#007ce2), color-stop(100%,#ff6b6b)); /* Chrome,Safari4+ */
+
+  background: -webkit-linear-gradient(top, #007ce2 0%,#ff6b6b 100%); /* Chrome10+,Safari5.1+ */
+
+  background: -o-linear-gradient(top, #007ce2 0%,#ff6b6b 100%); /* Opera 11.10+ */
+
+  background: linear-gradient(to bottom, #007ce2 0%,#ff6b6b 100%); /* W3C, IE10+ */
+
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#007ce2', endColorstr='#ff6b6b',GradientType=0 ); /* IE6-9 */
+
+}
+
+nav#mainnav ul li:first-child a {
+
+  border-top-left-radius: 8px;
+
+  border-bottom-left-radius: 8px; }
+
+nav#mainnav ul li:last-child a {
+
+  border-top-right-radius: 8px;
+
+  border-bottom-right-radius: 8px; }
+
+#appl-title {
+    margin-left: 30px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.site-content {
+	min-height: 36rem;
+	padding: 0px 30px 0px 30px;
+}
+
+#contentmain {
+    width: 740px;
+    margin-left: 30px;
+    float: left;
+    position: relative;
+}
+
+#main-content {
+	position: relative;
+	float: left;
+	max-width: 840px;
+    width:100%;
+}
+#main-content a:link{
+	text-decoration: none;
+    transition: .4s;
+    color: #346acb;
+}
+
+#main-content ul {
+	list-style-type: none;
+	margin-left: 20px;
+	line-height: 2
+}
+
+#main-content ul li {
+	text-indent: -5px;
+	text-decoration: none;
+
+}
+
+#main-content ul.dashed a:link {
+	text-decoration: none;
+    font-weight: 400;
+    font-size: 13px;
+    transition: .4s;
+    color: #346acb;
+}
+#main-content ul.dashed > li::before {
+    content: "-";
+    text-indent: -6px;
+    right: 5px;
+    position: relative;
+}
+
+#main-content ul.circled > li::before {
+    content: "•";
+    text-indent: -6px;
+    right: 5px;
+    position: relative;
+}
+
+#square {
+  list-style-type: square;
+}
+
+.profile-img {
+    float: left;
+    padding-right: 4px;
+}
+
+.panel-body{
+    padding: 0;
+}
+
+#description {
+    padding: 8px;
+}
+
+.img-caption {
+    font-style: italic;
+    text-align: center !important;
+    font-size: 13px !important;
+    padding: 0 !important;
+    margin: -10px 0 18px;
+    color: #2e64aa;
+}
+
+.img-container {
+    padding: 12px 12px 7px 12px;
+    border: 1px solid #ccc;
+    margin: 1.5rem;
+    text-align: center;
+    margin: 1.2rem;
+}
+
+
+
+#sidebar {
+	position: relative;
+	float: right;
+	width: 260px;
+	/*padding: 1rem 1.5rem;*/
+	margin-top: 3rem;
+	margin-right: 30px;
+	text-align: left;
+}
+
+#sidebar button {
+	color: #fff;
+	background: linear-gradient(#2197f9,#007ce2);
+	line-height: 1.4;
+	font-size: 12px;
+	vertical-align: middle;
+	border-radius: 3px;
+	border: solid 1px #007ce2;
+	padding: 3px 8px 6px 8px;
+	letter-spacing: 0;
+	cursor: pointer;
+	margin: 10px 14px 0 0;
+	width: 80%;
+	font-weight: 600;
+}
+
+#sidebar button.alt {
+	border: solid 1px red;
+	padding: 5px 8px;
+	background: linear-gradient(#ff6b6b,#ec2929);
+}
+
+#sidebar button img {
+	position: relative;
+	top: 3px;
+	left: 4px;
+}
+
+#sidebar button .fa {
+	position: relative;
+	font-size: 14px;
+	left: 4px;
+}
+
+#sidebar button:hover {
+	opacity: .8;
+}
+
+
+@media only screen and (max-width:1200px) {
+	#sidebar {
+		text-align: center;
+		margin: 1rem auto;
+		width: 100%;
+	}
+}

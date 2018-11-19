@@ -1,0 +1,44 @@
+{% extends 'SMAapp/_base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}SMAapp{% endblock %}
+
+{% block css %}{{block.super}}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/SMAapp/index.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <img src="/static/images/1.png" class="img-responsive">
+        </div>
+        <div class="row row_bg">
+            <div class="col-xs-4"></div>
+            <div class="col-xs-4" id="search-user-form">
+                <div class="panel panel-success">
+                    <div class="panel-heading">Search Username</div>
+                    <div class="panel-body well">
+                        {% crispy search_user_form %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-4"></div>
+        </div>
+        <div class="row">
+            <img src="/static/images/2.png" class="img-responsive">
+        </div>
+        <div class="row row_bg">
+            <div class="col-xs-4"></div>
+            <div class="col-xs-4" id="search-user-form">
+                <div class="panel panel-warning">
+                    <div class="panel-heading">Compare Users</div>
+                    <div class="panel-body well">
+                        {% crispy compare_users_form %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-4"></div>
+        </div>
+    </div>
+{% endblock %}

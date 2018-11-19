@@ -1,0 +1,41 @@
+{% extends 'SMAapp/_base.html' %}
+
+{% block title %}
+    Guide
+{% endblock %}
+
+{% block css %}{{block.super}}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/SMAapp/guide_accordion.css' %}">
+    <link rel="stylesheet" href="{% static 'css/SMAapp/plain.css' %}">
+{% endblock %}
+{% block content %}
+   <!-- Application's space -->
+<div class="site-content">
+
+	<article id="main-content">
+
+		<h2>Related Documents</h2>
+
+		<p>
+			Selected use case using the new stuff tool of the Online-S3 platform:<br>
+			<a href='#'> <i>Will be uploaded after the pilots</i> </a>
+		</p>
+
+
+	</article>
+
+	<aside id='sidebar'>
+
+            <a href="{% static "images/social_media_Guide.pdf" %}" target="_blank" onclick="popIt(this.href);return false;"><button class="alt"> Download Guide  <i class="fa fa-file-pdf-o" aria-hidden="true"></i></button></a>
+
+            <div></div>
+            <a id='tool' href='{% url 'smaapp:index' %}'><button> Access to application  <img  src="{% static "images/access-icon.png" %}" width="20"></button></a>
+        </aside>
+
+    </div>
+{% endblock %}
+
+{% block js_end %}
+    <script src="{% static "js/popit.js" %}"></script>
+{% endblock %}

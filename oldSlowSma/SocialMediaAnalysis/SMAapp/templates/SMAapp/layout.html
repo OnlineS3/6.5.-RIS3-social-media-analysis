@@ -1,0 +1,278 @@
+{% extends 'SMAapp/_base.html' %}
+
+{% block title %}
+    User Profile
+{% endblock %}
+
+{% block css %}{{block.super}}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/SMAapp/layout.css' %}">
+    <link rel="stylesheet" href="{% static 'css/SMAapp/tweet.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="container-fluid ">
+        <div class="row content">
+            <div class="col-lg-3 col-md-3 hidden-sm hidden-xs">
+                <button class="btn btn-primary" onclick="location.href='{% url 'smaapp:index' %}'">
+                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                    Back to Search
+                </button>
+                <div class="panel panel-default well">
+                    <div class="panel-body">
+                        <h3><strong>Username</strong></h3>
+                        <img id="profile-img" src="{{ user.profile_image_url }}"
+                             width="48px" height="48px">
+                            {{ user.name }} @{{ user.screen_name }}
+                        <hr>
+                        <h3><strong>Location</strong></h3>
+                        <p>{{ user.location }}</p>
+                        <hr>
+                        <h3><strong>Created at</strong></h3>
+                        <p>{{ user.created_at }}</p>
+                        <hr>
+                        <h3><strong>Last Tweet</strong></h3>
+
+                        <div class="tweet">
+                            <img src="{{ user.profile_image_url }}" class="img-responsive" style="width:60px">
+                            <h4>{{ user.name }}<br><small>@{{ user.screen_name }}</small></h4>
+                            <p>{{ latest_tweet.text }}<br>
+                            </p>
+                            <div>
+                                <div class="floating-right">
+                                    <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                    {{ latest_tweet.favorite_count }}
+                                </div>
+                                <h5>
+                                    <small> {{ latest_tweet.created_at }}</small>
+                                </h5>
+                            </div>
+                        </div>
+
+                        <hr>
+                        <h3 id="word-cloud-header"><strong>Word Cloud</strong></h3>
+                        <div class="wordCloud"></div>
+                    </div>
+                </div>
+            </div>
+            <br>
+
+            <div class="col-sm-9">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Description</div>
+                    <div id="description" class="panel-body well">{{ user.description }}</div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-sm-4">
+                        <div class="circle-tile">
+                            <div class="circle-tile-heading red">
+                                <i class="fa fa-users fa-fw fa-3x"></i>
+                            </div>
+                            <div class="circle-tile-content red">
+                                <div class="circle-tile-description text-faded">
+                                    Followers
+                                </div>
+                                <div class="circle-tile-number text-faded">
+                                    {{ user.followers_count }}
+                                    <span id="sparklineA"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-sm-4">
+                        <div class="circle-tile">
+                            <div class="circle-tile-heading purple">
+                                <i class="fa fa-user fa-fw fa-3x"></i>
+                            </div>
+                            <div class="circle-tile-content purple">
+                                <div class="circle-tile-description text-faded">
+                                    Friends
+                                </div>
+                                <div class="circle-tile-number text-faded">
+                                    {{ user.friends_count }}
+                                    <span id="sparklineD"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-sm-4">
+                        <div class="circle-tile">
+                            <div class="circle-tile-heading blue">
+                                <i class="fa fa-twitter fa-fw fa-3x"></i>
+                            </div>
+                            <div class="circle-tile-content blue">
+                                <div class="circle-tile-description text-faded">
+                                    Tweets
+                                </div>
+                                <div class="circle-tile-number text-faded">
+                                    {{ user.statuses_count }}
+                                    <span id="sparklineC"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Top 3 tweets</div>
+                    <div class="panel-body well">
+                        <div class="col-lg-4 col-sm-4">
+
+                            <div class="tweet">
+                                <img src="{{ user.profile_image_url }}" class="img-responsive" style="width:60px">
+                                <h4>{{ user.name }}<br><small>@{{user.screen_name}}</small></h4>
+                                <p>{{ first_favorite.text }}<br>
+                                </p>
+                                <div>
+                                    <div class="floating-right">
+                                        <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                        {{ first_favorite.favorite_count }}
+                                    </div>
+                                    <h5>
+                                        <small>{{ first_favorite.created_at }}</small>
+                                    </h5>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-lg-4 col-sm-4">
+
+                            <div class="tweet">
+                                <img src="{{ user.profile_image_url }}" class="img-responsive" style="width:60px">
+                                <h4>{{ user.name }}<br><small>@{{ user.screen_name }}</small></h4>
+                                <p>{{ second_favorite.text }}<br>
+                                </p>
+                                <div>
+                                    <div class="floating-right">
+                                        <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                        {{ second_favorite.favorite_count }}
+                                    </div>
+                                    <h5>
+                                        <small>{{ second_favorite.created_at }}</small>
+                                    </h5>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-lg-4 col-sm-4">
+
+                            <div class="tweet">
+                                <img src="{{ user.profile_image_url }}" class="img-responsive" style="width:60px">
+                                <h4>{{ user.name }}<br><small>@{{ user.screen_name }}</small></h4>
+                                <p>{{ third_favorite.text }}<br>
+                                </p>
+                                <div>
+                                    <div class="floating-right">
+                                        <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                        {{ third_favorite.favorite_count }}
+                                    </div>
+                                    <h5>
+                                        <small>{{ third_favorite.created_at }}</small>
+                                    </h5>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 col-sm-8">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">Activity per day</div>
+                            <div class="panel-body well">
+                                <div id="bar"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-4">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">Likes ratio</div>
+                            <div class="panel-body well">
+                                <div id="donut"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Likes history</div>
+                    <div class="panel-body well">
+                        <div id="likesLineChart"></div>
+                    </div>
+                </div>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Retweets history</div>
+                    <div class="panel-body well">
+                        <div id="retweetLineChart"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+
+{% block js_end %}
+    <script src="{% static "js/d3.layout.cloud.js" %}"></script>
+    <script src="{% static "js/wordCloud.js" %}"></script>
+    <script src="{% static "js/donutChart.js" %}"></script>
+    <script src="{% static "js/barChart.js" %}"></script>
+    <script src="{% static "js/lineChart.js" %}"></script>
+    <script>
+        $(document).ready(function () {
+            var bar_chart_array = [];
+            {% for key,value in activity_per_day.items %}
+                dict = [];
+                dict["y"] = "{{ key }}";
+                dict["a"] = {{ value }};
+                bar_chart_array.push(dict);
+            {% endfor %}
+
+            var likes_line_chart_array = [];
+            {% for key,value in favorites_per_day.items %}
+                dict = [];
+                dict["y"] = "{{ key }}";
+                dict["a"] = {{ value }};
+                likes_line_chart_array.push(dict);
+            {% endfor %}
+
+            var retweets_line_chart_array = [];
+            {% for key,value in retweets_per_day.items %}
+                dict = [];
+                dict["y"] = "{{ key }}";
+                dict["a"] = {{ value }};
+                retweets_line_chart_array.push(dict);
+            {% endfor %}
+
+            var word_cloud_array = [];
+            {% for key,value in word_frequency.items %}
+                dict = [];
+                dict["text"] = "{{ key }}";
+                dict["size"] = {{ value }};
+                word_cloud_array.push(dict);
+            {% endfor %}
+
+            var donut_chart_array = [];
+            var dict = [];
+            dict["label"] = "Tweets";
+            dict["value"] = {{ tweet_ratio }};
+            donut_chart_array.push(dict);
+            dict = [];
+            dict["label"] = "Retweets";
+            dict["value"] = {{ retweet_ratio }};
+            donut_chart_array.push(dict);
+
+            init_bar_chart(bar_chart_array);
+            init_likes_line_chart(likes_line_chart_array);
+            init_retweets_line_chart(retweets_line_chart_array);
+            init_word_count(word_cloud_array);
+            init_donut_chart(donut_chart_array, function (y, data) {return y+"%"});
+        })
+
+    </script>
+
+{% endblock %}
